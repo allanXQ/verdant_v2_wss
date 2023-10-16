@@ -1,0 +1,4 @@
+actions
+when launching the default interval is 1m
+when user send request then request should contain symbol and interval
+unsubscribe user from previous stream

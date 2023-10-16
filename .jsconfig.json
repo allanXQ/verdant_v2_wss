@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@root/*": ["./*"],
+      "@models/*": ["./models/*"],
+      "@utils/*": ["./utils/*"],
+      "@controllers/*": ["./controllers/*"],
+      "@routes/*": ["./routes/*"],
+      "@middleware": ["./middleware"],
+      "@models": ["./models"],
+      "@routes": ["./routes"],
+      "@services": ["./services"],
+      "@validations": ["./validations"],
+      "@utils": ["./utils"],
+      "@yupschemas": ["./yupschemas"]
+    }
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules"]
+}
