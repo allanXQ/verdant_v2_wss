@@ -112,7 +112,7 @@ const pingInterval = 840000; // 14 minutes in milliseconds
 
 function pingSelf() {
   axios
-    .get("https://hive-server.onrender.com/api/v1/user/user-info")
+    .get("https://verdantwss.onrender.com/")
     .then((response) => {
       console.log("Service pinged successfully:", response.status);
     })
