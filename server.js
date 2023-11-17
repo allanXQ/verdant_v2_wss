@@ -13,7 +13,7 @@ const server = http.createServer(app);
 
 const wss = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [process.env.CLIENT_URL, process.env.APP_URL],
     credentials: true,
   },
 });
@@ -107,5 +107,21 @@ wss.on("connection", (socket) => {
     console.log(`Socket disconnected: ${socket.id}`);
   });
 });
+
+const pingInterval = 840000; // 14 minutes in milliseconds
+
+function pingSelf() {
+  axios
+    .get("https://hive-server.onrender.com/api/v1/user/user-info")
+    .then((response) => {
+      console.log("Service pinged successfully:", response.status);
+    })
+    .catch((error) => {
+      console.error("Error pinging service:", error);
+    });
+}
+
+// Set up the interval to ping your service every 14 minutes
+setInterval(pingSelf, pingInterval);
 
 DBconn(server, port);
